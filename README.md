@@ -1,2 +1,2 @@
 # COL106
-This contains assignments of COL106 course in IIT Delhi which is data structures and algorithms
+This contains assignments of COL106(Data Structures and Algorithm) course of IIT Delhi
