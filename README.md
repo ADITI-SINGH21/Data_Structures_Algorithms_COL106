@@ -1,6 +1,7 @@
 # Data Structures and Algorithms (COL106)
 This contains assignments of COL106(Data Structures and Algorithm) course of IIT Delhi. These Include <br />
-1. Ass1.java(TwoDBlock Matrix) <br />
-2. MyStack.java, MyCalculator.java, StackSort.java <br />
-3. BST.java, Heap.java, Election.java <br />
-4. WeakAVLMap.java, WordCounter.java, Map.java  <br />
+Assignment 1- Ass1.java(TwoDBlock Matrix) <br />
+Assignment 2- MyStack.java, MyCalculator.java, StackSort.java <br />
+Assignment 3- BST.java, Heap.java, Election.java <br />
+Assignment 4- WeakAVLMap.java, WordCounter.java, Map.java  <br />
+This repository also consists of Extra folder which consists of additional codes on other data strucutres and algorithms which have been commented to explain the code.
