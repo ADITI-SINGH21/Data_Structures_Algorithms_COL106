@@ -1,0 +1,124 @@
+Overall Objective
+
+In this assignment, you have to work with sorting.
+
+Primarily, this assignment will test your understanding of Merge sort as you will implement Merge sort on Linked List.
+
+Scenario:
+
+Stock management:
+Consider a warehouse that consists of several types of products. Such as Samsung galaxy ace, iPhone 6, Denim jeans, etc.
+
+There are  a fixed set of categories namely:
+Mobile
+Utensils
+Sanitary
+Medical equipment
+Clothes
+
+Each product belongs to exactly one category.
+
+We have a Linked list(Class provided in skeleton code you must use this provided class) of Categories: LinkedList<CategoryNode>.
+
+Each item in Categories has a category Id, category name and pointer to a linked list of Items of that category
+
+Pointer to   Mobile linked list
+
+ 
+Pointer to Utensils Linked list
+Pointer to  Sanitary  Linked list
+
+
+Pointer to  Medical equipment  Linked list
+
+
+Pointer to  Clothes Linked list
+
+
+
+				Fig.1 
+
+Category interface  is of the form:
+
+interface CategoryInterface{
+    public int getCategoryId();
+    public String getCategoryName();
+    public LinkedList<ItemNode> getLinkedListOfCategory();
+}
+
+Example:
+
+Mobile linked list: Nokia6600 -> blackberryE70-> samsung galaxy Ace-> IPhone5.
+Cloth Linked list: Denim jeans -> Bombay Dyeing bedsheet->  Kanchipuram Silk Saree.
+
+
+
+
+Each ItemNode  is of a class which implements the below ItemInterface:
+
+interface ItemInterface{
+
+   int getItemId();   
+   String getItemName();
+   int getStockLeft();
+   Node<PurchaseNode> getPurchaseHead();
+
+}
+
+Each item has a purchase history of transactions maintained via a linked list:
+LinkedList<PurchaseNode> purchaseTransactions=new LinkedList<>();
+
+getPurchaseHead() function returns the first element of that list. Further, each purchase Node is an object of a class that implements PurchaseInterface.
+
+interface PurchaseInterface{
+    
+   DateNode getDate();
+   int numItemsPurchased();
+ 
+}
+
+Note that Item Id is unique for a category but different categories might have same Item Id. This is not a problem for the queries that are given below.
+
+
+
+Queries :
+
+Note: After ‘addItemTransaction’ is executed for an item, the ‘stock’ of that item should be reduced by the ‘numItemPurchased’.
+
+The following queries will be executed after insertions of items and purchase histories while we evaluate your code and you must use LLMergeSort(Merge Sort for Linked List) to execute these queries.
+
+Sort all items across categories by their last date of purchase(ascending order oldest to newest). If the date of purchase is the same for 2 items, then sort in descending order (lexicographic ordering) by their name. Return linked list of all items of type ItemNode. Items for which there is no purchase transaction done, consider their last date of purchase as 1st  August 1970 with the number of items purchased as 0.
+
+To do this task, create a new LinkedList: LinkedList<ItemNode>. First, add ItemNode ‘s of category 1 and then of category 2 then of category 3 ….. so on. Perform sorting on the above newly created Linked list( Ref Fig. 2). 
+
+
+Category 1 items
+
+LinkedList<ItemNode>
+Category 2 items
+
+LinkedList<ItemNode>
+Category 3 items
+
+LinkedList<ItemNode>
+Category 4 items
+
+LinkedList<ItemNode>
+Category 5 items
+
+LinkedList<ItemNode>
+Fig. 2
+
+
+
+
+Sort items in ascending order of  “number of items purchased in specified period/((Absolute value of difference between year of first and last purchase in specified period)+1)” as key in a certain period( Purchase date in the given range both start and end inclusive). If  “number of items purchased in specified period/((Absolute value of difference between year of first and last purchase in specified period)+1)” are the same then sort them in lexicographic descending order by item name. Return linked list of  ItemNode. Note that you should treat the term : “number of items purchased in specified period/((Absolute value of difference between year of first and last purchase in specified period)+1)” as a float. Note: If there is only one transaction in that period then difference between year of first and last purchase is to be taken as 0 i.e denomanitor is 1.
+
+To do this task, create a new LinkedList LinkedList<ItemNode>  as done in query 1 above, filter the list according to the time period, and perform sorting on that. Note that, “number of items purchased” is the number of purchases made in the provided time interval. If there are no purchases in that interval for an item, then consider the “ number of items purchased” as 0 for that item. Items for which there is no purchase transaction done, consider their last date of purchase as 1st  August 1970 with the number of items purchased as 0. 
+Select a particular category and sort items in descending order according to stock_left. Example: medical equipment category. If stock left is the same for the two items then sort them in lexicographic descending order by name. Return linked list of ItemNode.
+
+
+Filter items of a category (let’s say mobiles). Now return all items sorted by last_date of purchase(descending  order-newest to oldest). If the date of purchase is the same then use lexicographic descending order by their names. Items for which there is no purchase transaction done, consider their last date of purchase as 1st  August 1970 with the number of items purchased as 0. Return linked list of ItemNode.
+
+
+Sorting technique to use: Merge sort:
